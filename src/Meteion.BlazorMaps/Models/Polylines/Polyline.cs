@@ -16,7 +16,7 @@ public class Polyline : Path
 
     internal Polyline(IJSObjectReference jsReference, IEventedJsInterop eventedJsInterop)
     {
-        base.eventedJsInterop = eventedJsInterop;
+        EventedJsInterop = eventedJsInterop;
         JsReference = jsReference;
     }
 

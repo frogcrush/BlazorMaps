@@ -8,6 +8,6 @@ internal class MapEvented : Evented
     public MapEvented(IJSObjectReference jsReference, IEventedJsInterop eventedJsInterop)
     {
         JsReference = jsReference;
-        base.eventedJsInterop = eventedJsInterop;
+        EventedJsInterop = eventedJsInterop;
     }
 }

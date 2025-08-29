@@ -17,7 +17,7 @@ public class CircleMarker : Path
     internal CircleMarker(IJSObjectReference jsReference, IEventedJsInterop eventedJsInterop)
     {
         JsReference = jsReference;
-        base.eventedJsInterop = eventedJsInterop;
+        EventedJsInterop = eventedJsInterop;
     }
 
     public async Task<object> ToGeoJSON() => await JsReference.InvokeAsync<object>(ToGeoJSONJsFunction);

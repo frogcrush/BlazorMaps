@@ -17,7 +17,7 @@ public abstract class Evented : JsReferenceBase
     private const string MouseOutJsFunction = "mouseout";
     private const string ContextMenuJsFunction = "contextmenu";
     private const string OffJsFunction = "off";
-    protected IEventedJsInterop eventedJsInterop;
+    protected IEventedJsInterop EventedJsInterop { get; set; }
     private readonly Dictionary<string, Func<MouseEvent, Task>> _mouseEvents = [];
 
     public async Task OnClick(Func<MouseEvent, Task> callback) => await On(ClickJsFunction, callback);
@@ -48,7 +48,7 @@ public abstract class Evented : JsReferenceBase
     private async Task On(string eventType)
     {
         DotNetObjectReference<Evented> eventedClass = DotNetObjectReference.Create(this);
-        await eventedJsInterop.OnCallback(eventedClass, JsReference, eventType);
+        await EventedJsInterop.OnCallback(eventedClass, JsReference, eventType);
     }
 
     public async Task Off(string eventType)

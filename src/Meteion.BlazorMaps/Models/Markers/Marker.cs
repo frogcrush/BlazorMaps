@@ -18,7 +18,7 @@ public class Marker : InteractiveLayer
     internal Marker(IJSObjectReference jsReference, IEventedJsInterop eventedJsInterop)
     {
         JsReference = jsReference;
-        base.eventedJsInterop = eventedJsInterop;
+        EventedJsInterop = eventedJsInterop;
     }
 
     public async Task<LatLng> GetLatLng() => await JsReference.InvokeAsync<LatLng>(GetLatLngJsFunction);
